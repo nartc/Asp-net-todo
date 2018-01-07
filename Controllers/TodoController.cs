@@ -23,6 +23,14 @@ namespace Task.Controllers
             return new OkObjectResult(todos);
         }
 
+        [HttpGet]
+        [Route("{slug}")]
+        public async Task<IActionResult> GetTodo(string slug)
+        {
+            var todo = await _todoService.GetSingleTodo(slug);
+            return new OkObjectResult(todo);
+        }
+
         [HttpPost]
         [Route("create")]
         public async Task<IActionResult> CreateTodo([FromBody] NewTodoParams todoParams)

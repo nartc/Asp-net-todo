@@ -8,7 +8,7 @@ namespace Task.Repositories
 {
     public class TodoRepository : ITodoRepository
     {
-        private MongoDbContext _context;
+        private readonly MongoDbContext _context;
 
         public TodoRepository(MongoDbContext _mongoContext)
         {

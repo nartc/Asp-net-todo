@@ -27,7 +27,9 @@ namespace Task
             services.Configure<MongoOptions>(Configuration.GetSection("Mongo"));
             services.AddSingleton<MongoDbContext>();
             services.AddScoped<ITodoRepository, TodoRepository>();
+            services.AddScoped<IUserRepository, UserRepository>();
             services.AddTransient<ITodoService, TodoService>();
+            services.AddTransient<IUserService, UserService>();
             services.AddAutoMapper();
         }
 
